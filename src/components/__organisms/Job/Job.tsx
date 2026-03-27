@@ -6,7 +6,7 @@ function Job({
   postedAt,
   contract,
   location,
-  languages,
+  tags,
 }) {
   return (
     <>
@@ -16,8 +16,8 @@ function Job({
         }}
         className="w-full h-[152px] bg-white flex justify-between p-[32px] shadow-[0px_15px_20px_-5px_#0D718226] rounded-[5px]"
       >
-        <div className="flex">
-          <div className="flex gap-[30px]">
+        <div className="flex w-full justify-between">
+          <div className="flex w-full gap-[30px]">
             <img src={img} className="size-[88px] rounded-full" />
             <div className="flex flex-col gap-[5px]">
               <h1 className="text-[#5CA5A5] font-[700] text-[18px]">
@@ -52,13 +52,9 @@ function Job({
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="flex gap-[16px]">
-          <div className="px-[10px] py-[5px] bg-[#5ca5a59d] hover:bg-[#5ca5a5]">
-            <h1 className="text-white font-[700] cursor-pointer">
-              {languages}
-            </h1>
+            <div>
+              <h1>{tags}</h1>
+            </div>
           </div>
         </div>
       </div>

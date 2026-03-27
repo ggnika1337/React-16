@@ -43,7 +43,7 @@ function App() {
                 contract={el.contract}
                 location={el.location}
                 postedAt={el.postedAt}
-                languages={el.languages}
+                tags={el.languages}
               />
             </div>
           );
