@@ -6,10 +6,12 @@ import X from "./assets/images/X.svg";
 
 function App() {
   const [isFilter, _setIsFilter] = useState(false);
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState<string[]>([]);
 
   function handleFilters(e: React.MouseEvent<HTMLDivElement>) {
     _setIsFilter(true);
+    let value = e.currentTarget.textContent;
+
     let isInArray: boolean = false;
     // check if array already has said filter
     if (filters.includes(e.currentTarget.textContent)) {
@@ -53,7 +55,7 @@ function App() {
                   </h1>
                   <div
                     onClick={() => {
-                      setFilters(filters.filter(tag => tag !== ))
+                      setFilters(filters.filter((tag) => tag));
                     }}
                     className="w-[32px] h-full flex justify-center rounded-r-[10px] items-center bg-[#5CA5A5] hover:bg-[#2B3939]"
                   >
