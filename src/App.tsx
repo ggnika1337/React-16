@@ -22,6 +22,14 @@ function App() {
     }
   }
 
+  const filtered = data.filter(
+    (el) =>
+      filters.every((tag) => el.languages.includes(tag)) ||
+      filters.every((tag) => el.tools.includes(tag)) ||
+      filters.every((tag) => el.role.includes(tag)) ||
+      filters.every((tag) => el.level.includes(tag)),
+  );
+
   return (
     <>
       <div className="background w-full h-[156px] z-1"></div>
@@ -43,7 +51,12 @@ function App() {
                   <h1 className="text-[#5CA5A5] font-[700] text-[16px] mb-[3px]">
                     {text}
                   </h1>
-                  <div className="w-[32px] h-full flex justify-center rounded-r-[10px] items-center bg-[#5CA5A5] hover:bg-[#2B3939]">
+                  <div
+                    onClick={() => {
+                      setFilters(filters.filter(tag => tag !== ))
+                    }}
+                    className="w-[32px] h-full flex justify-center rounded-r-[10px] items-center bg-[#5CA5A5] hover:bg-[#2B3939]"
+                  >
                     <img src={X} />
                   </div>
                 </div>
@@ -54,14 +67,13 @@ function App() {
             onClick={() => {
               filters.length = 0;
               _setIsFilter(false);
-              console.log(filters);
             }}
             className="font-[800] text-[20px] leading-[24px] hover:text-[#5CA5A5] text-[#7C8F8F] cursor-pointer"
           >
             Clear
           </h1>
         </div>
-        {data.map((el, key) => {
+        {filtered.map((el, key) => {
           return (
             <div key={key}>
               <Job
