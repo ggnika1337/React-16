@@ -1,5 +1,17 @@
 import Tags from "../../__atoms/Tags";
 
+type JobProps = {
+  img: string;
+  isNew?: boolean;
+  company: string;
+  position: string;
+  postedAt: string;
+  contract: string;
+  location: string;
+  tag: string[];
+  onClick: () => void;
+};
+
 function Job({
   img,
   isNew,
@@ -10,14 +22,14 @@ function Job({
   location,
   tag,
   onClick,
-}) {
+}: JobProps) {
   return (
     <>
       <div
         style={{
           borderLeft: isNew ? "5px solid #5CA5A5" : "none",
         }}
-        className="w-full h-[152px] max-md:h-[200px] relative max-md:px-[18px] max-md:py-0 bg-white flex justify-between p-[32px] shadow-[0px_15px_20px_-5px_#0D718226] rounded-[5px]"
+        className="w-full h-[152px] max-md:h-[240px] relative max-md:px-[18px] max-md:py-0 bg-white flex justify-between p-[32px] shadow-[0px_15px_20px_-5px_#0D718226] rounded-[5px]"
       >
         <div className="flex w-full justify-between max-md:absolute top-[-24px]">
           <div className="flex w-full gap-[30px] max-md:flex-col max-md:gap-[7px]">
@@ -30,6 +42,7 @@ function Job({
                 <h1 className="text-[#5CA5A5] font-[700] text-[18px]">
                   {company}
                 </h1>
+
                 <div
                   style={{
                     display: isNew ? "flex" : "none",
@@ -48,6 +61,7 @@ function Job({
                     </div>
                   </div>
                 </div>
+
                 <div>
                   <span className="hover:text-[#5CA5A5] font-[700] text-[22px] cursor-pointer">
                     {position}
@@ -60,11 +74,12 @@ function Job({
                     <span>{location}</span>
                   </div>
                 </div>
-                <div className="max-md:block hidden h-[1px] w-[92fit%] bg-[#B7C4C4]"></div>
+
+                <div className="max-md:block hidden h-[1px] w-[92%] bg-[#B7C4C4]"></div>
               </div>
 
-              <div className="flex gap-[16px]">
-                {tag.map((t, i) => (
+              <div className="flex gap-[16px] flex-wrap">
+                {tag.map((t: string, i: number) => (
                   <Tags key={i} tag={t} onClick={onClick} />
                 ))}
               </div>

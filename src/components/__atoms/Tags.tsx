@@ -1,6 +1,9 @@
-import React from "react";
+type TagsProps = {
+  tag: string;
+  onClick: () => void;
+};
 
-function Tags({ tag, onClick }) {
+function Tags({ tag, onClick }: TagsProps) {
   return (
     <>
       <div

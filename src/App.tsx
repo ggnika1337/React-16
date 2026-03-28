@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function App() {
   const [isFilter, _setIsFilter] = useState(false);
-  const filters: array = [];
+  const filters: string[] = [];
   return (
     <>
       <div className="background w-full h-[156px] z-1"></div>
@@ -49,7 +49,7 @@ function App() {
                 contract={el.contract}
                 location={el.location}
                 postedAt={el.postedAt}
-                tag={el.languages}
+                tag={[el.role, el.level, ...el.languages, ...el.tools]}
               />
             </div>
           );
