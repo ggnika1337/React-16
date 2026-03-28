@@ -4,9 +4,8 @@ import data from "../data.json";
 import { useState } from "react";
 
 function App() {
-  const [isFilter, setIsFilter] = useState(true);
+  const [isFilter, _setIsFilter] = useState(false);
   const filters: array = [];
-  console.log(filters);
   return (
     <>
       <div className="background w-full h-[156px] z-1"></div>
@@ -37,13 +36,20 @@ function App() {
           return (
             <div key={key}>
               <Job
+                onClick={() => {
+                  if (isFilter === true) {
+                    _setIsFilter(false);
+                  } else {
+                    _setIsFilter(true);
+                  }
+                }}
                 img={el.logo}
                 company={el.company}
                 position={el.position}
                 contract={el.contract}
                 location={el.location}
                 postedAt={el.postedAt}
-                tags={el.languages}
+                tag={el.languages}
               />
             </div>
           );
