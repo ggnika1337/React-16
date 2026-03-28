@@ -19,7 +19,7 @@ function App() {
         >
           <div>
             {filters.map(() => {
-              return;
+              return "123";
             })}
           </div>
           <h1
@@ -50,6 +50,7 @@ function App() {
                 location={el.location}
                 postedAt={el.postedAt}
                 tag={[el.role, el.level, ...el.languages, ...el.tools]}
+                isNew={el.new}
               />
             </div>
           );
