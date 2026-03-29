@@ -1,6 +1,6 @@
 type TagsProps = {
   tag: string;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 function Tags({ tag, onClick }: TagsProps) {

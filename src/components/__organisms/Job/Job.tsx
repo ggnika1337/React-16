@@ -9,7 +9,7 @@ type JobProps = {
   contract: string;
   location: string;
   tag: string[];
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 function Job({

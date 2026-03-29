@@ -10,16 +10,19 @@ function App() {
 
   function handleFilters(e: React.MouseEvent<HTMLDivElement>) {
     _setIsFilter(true);
-    let value = e.currentTarget.textContent;
+    const value = e.currentTarget.textContent;
 
     let isInArray: boolean = false;
+
+    if (!value) return;
+
     // check if array already has said filter
-    if (filters.includes(e.currentTarget.textContent)) {
+    if (filters.includes(value)) {
       isInArray = true;
     }
     // if array doesnt have filter, add
     if (isInArray !== true) {
-      setFilters([...filters, e.currentTarget.textContent]);
+      setFilters([...filters, value]);
       console.log(filters);
     }
   }
